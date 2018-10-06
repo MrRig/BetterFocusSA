@@ -1,0 +1,2041 @@
+focus_tree = {
+	id = peru_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = PRU
+		}
+	}
+		default = no
+		reset_on_civilwar = no
+
+focus = {
+	id = PRU_the_need_to_get_it_started
+	icon = GFX_goal_generic_military_sphere
+	x = 6
+	y = 0
+	cost = 5
+	available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = start_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+		}
+			PRU = { country_event = { id = peru.4 } }
+		}
+}
+
+focus = {
+	id = PRU_support_the_army
+	icon = GFX_goal_generic_allies_build_infantry
+	prerequisite = { focus = PRU_the_need_to_get_it_started }
+	x = 2
+	y = 1
+	cost = 10
+	available_if_capitulated = no
+
+	ai_will_do = {
+		factor = 10
+	}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = army_standard_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			add_war_support = 0.3
+			}
+		}
+	}
+	focus = {
+		id = PRU_good_old_tactics
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = PRU_support_the_army }
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+
+			completion_reward = {
+				add_tech_bonus = {
+					name = land_doc_hard_bonus
+					bonus = 1.0
+					uses = 1
+					category = land_doctrine
+
+			}
+		}
+	}
+		focus={
+			id = PRU_fully_written_tactic_card
+			icon = GFX_goal_generic_army_doctrines
+			prerequisite = { focus = PRU_good_old_tactics }
+			x = 2
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+
+				completion_reward = {
+					add_tech_bonus = {
+						name = land_doc_multi_bonus
+						bonus = 0.5
+						uses = 3
+						category = land_doctrine
+
+				}
+			}
+		}
+	focus = {
+		id = PRU_getting_forward_in_arms-technology
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = PRU_support_the_army }
+		x = 0
+		y = 2
+		cost = 9
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+		focus = {
+		id = PRU_slight_modernization
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = PRU_getting_forward_in_arms-technology }
+		x = 0
+		y = 3
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = PRU_quick_troop_transport
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = PRU_support_the_army }
+		bypass = { has_tech = motorised_infantry }
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 1.0
+				technology = motorised_infantry
+			}
+		}
+	}
+		focus = {
+			id = PRU_hardcore_war_techs
+			icon = GFX_goal_generic_army_tanks
+			prerequisite = { focus = PRU_quick_troop_transport }
+			x = 4
+			y = 3
+			cost = 10
+
+			available_if_capitulated = no
+
+			completion_reward = {
+				add_tech_bonus = {
+					name = armor_bonus
+					bonus = 0.5
+					uses = 2
+					category = armor
+			}
+		}
+	}
+focus = {
+	id = PRU_army_developement_at_the_highest_level
+	icon = GFX_goal_generic_build_tank
+	prerequisite = { focus = PRU_hardcore_war_techs }
+	prerequisite = { focus = PRU_fully_written_tactic_card }
+	prerequisite = { focus = PRU_slight_modernization }
+	x = 2
+	y = 4
+	cost = 10
+	available_if_capitulated = yes
+
+	ai_will_do = {
+		factor = 10
+	}
+
+		completion_reward = {
+			set_major = yes
+			add_tech_bonus = {
+				name = special_bonus
+				bonus = 0.5
+				uses = 5
+				category = infantry_weapons
+				category = artillery
+				technology = motorised_infantry
+				category = armor
+			}
+			add_war_support = 0.3
+			add_stability = -0.05
+			add_political_power = 100
+
+		}
+	}
+
+	focus = {
+		id=PRU_research_boost
+		prerequisite = { focus = PRU_army_developement_at_the_highest_level }
+		icon = GFX_focus_research2
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+
+
+			completion_reward = {
+				add_research_slot = 1
+
+				}
+		}
+
+
+
+
+
+
+focus = {
+	id=PRU_peru_needs_to_decide
+	icon = GFX_goal_generic_demand_territory
+	prerequisite = { focus = PRU_the_need_to_get_it_started }
+	x = 10
+	y = 1
+	cost = 10
+	available_if_capitulated = yes
+
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+
+#Fascism
+
+focus = {
+	id = PRU_benavides_is_the_best
+	prerequisite = { focus = PRU_peru_needs_to_decide }
+	icon = GFX_goal_support_fascism
+	x = 8
+	y = 2
+	cost = 10
+	available_if_capitulated = no
+	mutually_exclusive = { focus = PRU_peru_for_the_people }
+	mutually_exclusive = { focus = PRU_establishing_the_international_relationship }
+	ai_will_do = {
+		factor = 11
+	}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.4
+			}
+				add_ideas = nationalism
+
+		}
+	}
+focus = {
+	id=PRU_take_whats_ours
+	prerequisite = { focus = PRU_benavides_is_the_best }
+	icon = GFX_goal_anschluss
+	x = 8
+	y = 3
+	cost = 10
+
+		completion_reward = {
+		PRU = { country_event = { id = peru.3 } }
+
+		PRU = {
+			transfer_state = 305
+			puppet = ECU
+			}
+		}
+	}
+	focus = {
+		id=PRU_the_unbreakable_deal
+		prerequisite = { focus = PRU_take_whats_ours }
+		icon = GFX_goal_generic_military_deal
+		x = 7
+		y = 4
+		cost = 12
+		mutually_exclusive = { focus = PRU_form_the_doom_of_south_america }
+
+		ai_will_do = {
+			factor = 11
+		}
+
+		completion_reward = {
+			GER = { add_to_faction = PRU }
+			PRU = {
+				add_ai_strategy = {
+					type = alliance
+					id = "GER"
+					value = 200
+			}
+		}
+			}
+		}
+		focus = {
+			id=PRU_form_the_doom_of_south_america
+			prerequisite = { focus = PRU_take_whats_ours }
+			icon = GFX_goal_generic_CAS
+			x = 9
+			y = 4
+			cost = 10
+			mutually_exclusive = { focus = PRU_the_unbreakable_deal }
+			available_if_capitulated = yes
+
+				completion_reward = {
+				set_rule = { can_create_factions = yes }
+					PRU = { country_event = { id = peru.6 } }
+				}
+		}
+
+		focus = {
+			id=PRU_recreate_peru_bolivia
+			prerequisite = { focus = PRU_take_whats_ours }
+			icon = GFX_focus_hun_elect_a_king
+			x = 8
+			y = 5
+			cost = 10
+			available_if_capitulated = yes
+
+				completion_reward = {
+					PRU = { country_event = { id = peru.8 } }
+				}
+		}
+
+#Communism
+
+focus = {
+	id=PRU_peru_for_the_people
+	prerequisite = { focus = PRU_peru_needs_to_decide }
+	icon = GFX_goal_support_communism
+	mutually_exclusive = { focus = PRU_benavides_is_the_best }
+	mutually_exclusive = { focus = PRU_establishing_the_international_relationship }
+	x = 11
+	y = 2
+	cost = 15
+	available_if_capitulated = no
+
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.50
+			}
+			PRU = { country_event = { id = peru.5 } }
+			set_politics = { ruling_party = communism
+				elections_allowed = no
+			}
+	}
+}
+	focus = {
+		id=PRU_communist_schools
+		prerequisite = { focus = PRU_peru_for_the_people }
+		icon = GFX_goal_generic_war_with_comintern
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+
+			completion_reward = {
+			add_war_support = 0.10
+			add_stability = -0.05
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.05
+			}
+		}
+	}
+	focus = {
+		id=PRU_seek_for_friends
+		prerequisite = { focus = PRU_communist_schools }
+		icon = GFX_goal_generic_alliance
+		mutually_exclusive = { focus = PRU_join_the_comintern }
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+
+			completion_reward = {
+				set_rule = { can_create_factions = yes }
+				PRU = { country_event = { id = peru.7 } }
+			}
+	}
+	focus = {
+		id=PRU_join_the_comintern
+		prerequisite = { focus = PRU_communist_schools }
+		icon = GFX_goal_generic_forceful_treaty
+		mutually_exclusive = { focus = PRU_seek_for_friends }
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+
+			completion_reward = {
+				SOV = { add_to_faction = PRU }
+				PRU = {
+					add_ai_strategy = {
+						type = alliance
+						id = "SOV"
+						value = 200
+				}
+			}
+			}
+	}
+
+	focus = {
+		id=PRU_before_the_army_gets_bored
+		prerequisite = { focus = PRU_join_the_comintern focus = PRU_seek_for_friends }
+		icon = GFX_focus_chi_army_reform
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+
+			completion_reward = {
+						declare_war_on = {
+								target = CHL
+								type =
+									annex_everything
+						}
+			}
+	}
+
+	#Endgegner
+
+	focus = {
+		id=PRU_a_strong_enemy
+		prerequisite = { focus = PRU_recreate_peru_bolivia focus = PRU_before_the_army_gets_bored }
+		icon = GFX_goal_generic_major_war
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = no
+
+
+			completion_reward = {
+				declare_war_on = {
+					target = BRA
+					type =
+						annex_everything
+
+				}
+		}
+	}
+
+	focus = {
+		id=PRU_the_evolution
+		prerequisite = { focus = PRU_a_strong_enemy }
+		icon = GFX_focus_research
+		x = 10
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+
+
+			completion_reward = {
+				add_research_slot = 1
+				add_stability = 0.2
+				add_political_power = 100
+
+				}
+		}
+
+#Democracy
+
+focus = {
+	id=PRU_establishing_the_international_relationship
+	prerequisite = { focus = PRU_peru_needs_to_decide }
+	icon = GFX_goal_support_democracy
+	mutually_exclusive = { focus = PRU_benavides_is_the_best }
+	mutually_exclusive = { focus = PRU_peru_for_the_people }
+	x = 14
+	y = 2
+	cost = 10
+	available_if_capitulated = yes
+
+
+		completion_reward = {
+		PRU = { country_event = { id = peru.2 } }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+				}
+				set_politics = { ruling_party = democratic
+					elections_allowed = yes
+
+			}
+	}
+}
+
+	focus = {
+		id=PRU_join_the_allies
+		prerequisite = { focus = PRU_establishing_the_international_relationship }
+		icon = GFX_goal_generic_improve_relations
+			mutually_exclusive = { focus = PRU_form_an_own_faction }
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+
+		completion_reward = {
+			PRU = { country_event = { id = peru.1 } }
+			}
+		}
+
+		focus = {
+			id=PRU_i_can_do_better
+			prerequisite = { focus = PRU_join_the_allies }
+			icon = GFX_focus_chi_british_cooperation
+			x = 15
+			y = 4
+			cost = 12
+			available_if_capitulated = yes
+
+			completion_reward = {
+				transfer_state = 687
+				transfer_state = 691
+				transfer_state = 693
+				}
+			}
+
+		focus = {
+			id=PRU_form_an_own_faction
+			prerequisite = { focus = PRU_establishing_the_international_relationship }
+			icon = GFX_goal_generic_major_alliance
+			mutually_exclusive = { focus = PRU_join_the_allies }
+			x = 16
+			y = 3
+			cost = 10
+			available_if_capitulated = yes
+				completion_reward = {
+				set_rule = { can_create_factions = yes }
+						PRU = { country_event = { id = peru.0 } }
+					add_political_power = 50
+					}
+			}
+
+			focus = {
+				id=PRU_little_aggression
+				prerequisite = { focus = PRU_form_an_own_faction }
+				icon = GFX_goal_generic_territory_or_war
+				x = 16
+				y = 5
+				cost = 10
+				available_if_capitulated = yes
+
+
+					completion_reward = {
+						set_province_controller = 1633
+						set_province_controller = 4611
+						set_province_controller = 4624
+						add_to_faction = PAN
+				}
+			}
+
+			focus = {
+				id=PRU_support_is_evrything
+				prerequisite = { focus = PRU_i_can_do_better focus = PRU_little_aggression }
+				icon = GFX_goal_continuous_research
+				x = 15
+				y = 7
+				cost = 10
+				available_if_capitulated = yes
+
+
+					completion_reward = {
+						add_research_slot = 1
+
+						}
+				}
+
+#######################################################################################
+############################# NAVY & AIR ##############################################
+#######################################################################################
+################################# AIR #################################################
+#######################################################################################
+
+focus = {
+	id = PRU_aviation_effort
+	icon = GFX_goal_generic_build_airforce
+	prerequisite = { focus = PRU_the_need_to_get_it_started }
+	x = 21
+	y = 1
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	complete_tooltip = {
+		air_experience = 25
+		if = { limit = { has_country_flag = aviation_effort_AB }
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			name = air_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+	}
+
+	completion_reward = {
+		air_experience = 25
+
+		if = {
+			limit = {
+				capital_scope = {
+					NOT = {
+						free_building_slots = {
+							building = air_base
+							size > 1
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				ROOT = { set_country_flag = aviation_effort_AB }
+			}
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				ROOT = { set_country_flag = aviation_effort_AB }
+			}
+		}
+		add_tech_bonus = {
+			name = air_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+	}
+}
+
+focus = {
+	id = PRU_fighter_focus
+	icon = GFX_goal_generic_air_fighter
+	prerequisite = { focus = PRU_aviation_effort }
+	mutually_exclusive = { focus = PRU_bomber_focus }
+	x = -1
+	y = 1
+	relative_position_id = PRU_aviation_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = fighter_bonus
+			bonus = 0.5
+			uses = 2
+			technology = early_fighter
+			technology = fighter1
+			technology = fighter2
+			technology = fighter3
+			technology = heavy_fighter1
+			technology = heavy_fighter2
+			technology = heavy_fighter3
+		}
+	}
+}
+
+focus = {
+	id = PRU_bomber_focus
+	icon = GFX_goal_generic_air_bomber
+	prerequisite = { focus = PRU_aviation_effort }
+	mutually_exclusive = { focus = PRU_fighter_focus }
+	x = 1
+	y = 1
+	relative_position_id = PRU_aviation_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = bomber_bonus
+			bonus = 0.5
+			uses = 2
+			technology = strategic_bomber1
+			technology = strategic_bomber2
+			technology = strategic_bomber3
+			category = tactical_bomber
+		}
+	}
+}
+
+focus = {
+	id = PRU_aviation_effort_2
+	icon = GFX_goal_generic_air_doctrine
+	prerequisite = { focus = PRU_bomber_focus focus = PRU_fighter_focus }
+	x = -1
+	y = 1
+	relative_position_id = PRU_bomber_focus
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	complete_tooltip = {
+		air_experience = 25
+		if = { limit = { has_country_flag = aviation_effort_2_AB }
+			add_building_construction = {
+				type = air_base
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			name =  air_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+	}
+	completion_reward = {
+		air_experience = 25
+		if = {
+			limit = {
+				capital_scope = {
+					OR = {
+						NOT = { is_controlled_by = ROOT }
+						NOT = {
+							free_building_slots = {
+								building = air_base
+								size > 1
+							}
+						}
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				ROOT = { set_country_flag = aviation_effort_2_AB }
+			}
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					is_controlled_by = ROOT
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+			}
+			capital_scope = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+				ROOT = { set_country_flag = aviation_effort_2_AB }
+			}
+		}
+		add_tech_bonus = {
+			name =  air_doc_bonus
+			bonus = 0.5
+			uses = 1
+			category = air_doctrine
+		}
+	}
+}
+
+focus = {
+	id = PRU_cas_effort
+	icon = GFX_goal_generic_CAS
+	prerequisite = { focus = PRU_aviation_effort_2 }
+	x = 22
+	y = 4
+	cost = 10
+	mutually_exclusive = { focus = PRU_nav_effort }
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = CAS_bonus
+			bonus = 0.5
+			ahead_reduction = 1
+			uses = 1
+			category = cas_bomber
+		}
+	}
+}
+
+focus = {
+	id = PRU_rocket_effort
+	icon = GFX_focus_rocketry
+	prerequisite = { focus = PRU_nav_effort  focus = PRU_cas_effort }
+	x = 1
+	y = 2
+	relative_position_id = PRU_aviation_effort_2
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = jet_rocket_bonus
+			ahead_reduction = 0.5
+			uses = 2
+			category = rocketry
+			category = jet_technology
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			always = yes
+		}
+	}
+}
+
+focus = {
+	id = PRU_nuclear_effort
+	icon = GFX_focus_wonderweapons
+	prerequisite = { focus = PRU_nav_effort  focus = PRU_cas_effort }
+	x = -1
+	y = 2
+	relative_position_id = PRU_aviation_effort_2
+	cost = 12
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = nuclear_bonus
+			ahead_reduction = 0.5
+			category = nuclear
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			always = yes
+		}
+	}
+}
+
+focus = {
+	id = PRU_nav_effort
+	icon = GFX_goal_generic_air_naval_bomber
+	prerequisite = { focus = PRU_aviation_effort_2 }
+	x = 20
+	y = 4
+	cost = 10
+	mutually_exclusive = { focus = PRU_cas_effort }
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = nav_bomber_bonus
+			bonus = 0.5
+			ahead_reduction = 1
+			uses = 1
+			category = naval_bomber
+		}
+	}
+}
+
+focus = {
+	id = PRU_test
+	icon = GFX_goal_generic_air_fighter2
+	prerequisite = { focus = PRU_rocket_effort focus = PRU_nuclear_effort }
+	x = 21
+	y = 6
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		declare_war_on = {
+			target = ARG
+			type =
+				annex_everything
+		}
+		}
+	}
+
+#################### NAVY ######################################################
+
+focus = {
+	id = PRU_build_a_navy
+	icon = GFX_goal_continuous_naval_production
+	prerequisite = { focus = PRU_the_need_to_get_it_started }
+	x = 26
+	y = 1
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		492 = { add_extra_state_shared_building_slots = 2}
+		492 = { add_building_construction = {
+							type = dockyard
+							level = 2
+							instant_build = yes} }
+	}
+}
+
+focus = {
+	id = PRU_patrol_the_coast
+	icon = GFX_goal_generic_positive_trade_relations
+	prerequisite = { focus = PRU_build_a_navy }
+	x = 26
+	y = 3
+	cost = 5
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		create_equipment_variant = {
+				name = "Coast Guard"
+				type = light_cruiser_2
+				upgrades = {
+					ship_reliability_upgrade = 5
+					ship_engine_upgrade = 1
+					ship_gun_upgrade = 3
+					ship_anti_air_upgrade = 6
+				}
+			}
+	}
+}
+
+focus = {
+	id = PRU_cruising_around_a_bit
+	icon = GFX_goal_generic_navy_cruiser
+	prerequisite = { focus = PRU_patrol_the_coast }
+	x = 26
+	y = 4
+	cost = 5
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		create_equipment_variant = {
+				name = "Crucero de Batalla Peruano"
+				type = battle_cruiser_2
+				upgrades = {
+					ship_reliability_upgrade = 1
+					ship_engine_upgrade = 8
+					ship_gun_upgrade = 2
+					ship_anti_air_upgrade = 3
+				}
+			}
+	}
+}
+
+focus = {
+	id = PRU_build_up_the_ports
+	icon = GFX_focus_generic_coastal_fort
+	prerequisite = { focus = PRU_cruising_around_a_bit }
+	x = 26
+	y = 5
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		492 = { add_building_construction = {
+			type = naval_base
+			level = 6
+			instant_build = yes
+			province = { id = 2210 }
+		}
+	}
+		303 = {set_building_level = {
+			type = naval_base
+			level = 10
+			instant_build = yes
+			province = { id = 12997 }
+				}
+			}
+	}
+}
+
+
+focus = {
+		id = PRU_peruvian_navy
+		icon = GFX_goal_generic_build_navy
+		prerequisite = { focus = PRU_build_a_navy }
+		x = -2
+		y = 1
+		relative_position_id = PRU_build_a_navy
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 0.5
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	focus = {
+			id = PRU_destroyer_effort
+			icon = GFX_focus_generic_destroyer
+			prerequisite = { focus = PRU_peruvian_navy }
+			x = 0
+			y = 1
+			relative_position_id = PRU_peruvian_navy
+			cost = 10
+
+			available_if_capitulated = yes
+
+
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 0
+					all_owned_state = {
+						OR = {
+							is_coastal = no
+							dockyard < 1
+						}
+					}
+				}
+			}
+
+			completion_reward = {
+				add_tech_bonus = {
+					name = dd_bonus
+					bonus = 0.5
+					ahead_reduction = 1
+					uses = 1
+					technology = early_destroyer
+					technology = basic_destroyer
+					technology = improved_destroyer
+					technology = advanced_destroyer
+				}
+			}
+		}
+
+		focus = {
+				id = PRU_submarine_effort
+				icon = GFX_goal_generic_navy_submarine
+				prerequisite = { focus = PRU_destroyer_effort }
+				x = 0
+				y = 1
+				relative_position_id = PRU_destroyer_effort
+				cost = 10
+
+				available_if_capitulated = yes
+
+
+				ai_will_do = {
+					factor = 1
+					modifier = {
+						factor = 0
+						all_owned_state = {
+							OR = {
+								is_coastal = no
+								dockyard < 1
+							}
+						}
+					}
+				}
+
+				completion_reward = {
+					add_tech_bonus = {
+						name = ss_bonus
+						bonus = 0.5
+						ahead_reduction = 1
+						uses = 1
+						technology = early_submarine
+						technology = basic_submarine
+						technology = improved_submarine
+						technology = advanced_submarine
+					}
+				}
+			}
+	focus = {
+		id = PRU_capital_ships_effort
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = PRU_submarine_effort }
+		x = 0
+		y = 1
+		relative_position_id = PRU_submarine_effort
+		cost = 10
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				all_owned_state = {
+					OR = {
+						is_coastal = no
+						dockyard < 1
+					}
+				}
+			}
+		}
+	}
+
+		focus = {
+				id = PRU_naval_effort
+				icon = GFX_goal_generic_construct_naval_dockyard
+				prerequisite = { focus = PRU_capital_ships_effort }
+				prerequisite = { focus = PRU_build_up_the_ports }
+				x = 1
+				y = 1
+				relative_position_id = PRU_capital_ships_effort
+				cost = 10
+
+				available_if_capitulated = yes
+
+
+				available = {
+					any_state = {
+						is_coastal = yes
+						is_controlled_by = ROOT
+					}
+				}
+
+				complete_tooltip = {
+					navy_experience = 25
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+
+				completion_reward = {
+					navy_experience = 25
+					if = {
+						limit = {
+							NOT = {
+								any_owned_state = {
+									dockyard > 0
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+								}
+							}
+							any_owned_state = {
+								is_coastal = yes
+							}
+						}
+						random_owned_controlled_state = {
+							limit = {
+								is_coastal = yes
+								free_building_slots = {
+									building = dockyard
+									size > 2
+									include_locked = yes
+								}
+							}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+								type = dockyard
+								level = 3
+								instant_build = yes
+							}
+						}
+						set_country_flag = naval_effort_built
+					}
+					if = {
+						limit = {
+							NOT = { has_country_flag = naval_effort_built }
+							any_owned_state = {
+								dockyard > 0
+								free_building_slots = {
+									building = dockyard
+									size > 2
+									include_locked = yes
+								}
+							}
+						}
+						random_owned_controlled_state = {
+							limit = {
+								dockyard > 0
+								free_building_slots = {
+									building = dockyard
+									size > 2
+									include_locked = yes
+								}
+							}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+								type = dockyard
+								level = 3
+								instant_build = yes
+							}
+						}
+						set_country_flag = naval_effort_built
+					}
+					if = {
+						limit = {
+							NOT = { has_country_flag = naval_effort_built }
+							NOT = {
+								any_owned_state = {
+									free_building_slots = {
+										building = dockyard
+										size > 2
+										include_locked = yes
+									}
+								}
+							}
+						}
+						random_state = {
+							limit = {
+								controller = { tag = ROOT }
+								free_building_slots = {
+									building = dockyard
+									size > 2
+									include_locked = yes
+								}
+							}
+							add_extra_state_shared_building_slots = 3
+							add_building_construction = {
+								type = dockyard
+								level = 3
+								instant_build = yes
+							}
+						}
+					}
+				}
+			}
+
+################################################################################
+####################### INDUSTRY ###############################################
+################################################################################
+
+focus = {
+	id = PRU_industrial_effort
+	icon = GFX_goal_generic_production
+	x = 30
+	y = 0
+	cost = 10
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = industrial_bonus
+			bonus = 0.5
+			uses = 1
+			category = industry
+		}
+	}
+
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0
+			date < 1939.1.1
+			OR = {
+				# we dont want chinese minors to go crazy on slots early since they get eaten
+				tag = GXC
+				tag = YUN
+				tag = SHX
+				tag = XSM
+				tag = BEL
+				tag = LUX
+				tag = HOL
+				tag = DEN
+
+				# we also dont want tiny nations to go crazy with slots right away
+				num_of_controlled_states < 2
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_construction_effort
+	icon = GFX_goal_generic_construct_civ_factory
+	prerequisite = { focus = PRU_industrial_effort }
+	x = -1
+	y = 1
+	relative_position_id = PRU_industrial_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = industrial_complex
+			level = 2
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_production_effort
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = PRU_industrial_effort }
+	x = 1
+	y = 1
+	relative_position_id = PRU_industrial_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = production_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = arms_factory
+			level = 1
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_construction_effort_2
+	icon = GFX_goal_generic_construct_civ_factory
+	prerequisite = { focus = PRU_construction_effort }
+	x = 0
+	y = 1
+	relative_position_id = PRU_construction_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = construction_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = industrial_complex
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+			type = industrial_complex
+			level = 3
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = industrial_complex
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_production_effort_2
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = PRU_production_effort }
+	x = 0
+	y = 1
+	relative_position_id = PRU_production_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = production_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = arms_factory
+			level = 1
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_infrastructure_effort
+	icon = GFX_goal_generic_construct_infrastructure
+	prerequisite = { focus = PRU_construction_effort_2 }
+	x = 0
+	y = 1
+	relative_position_id = PRU_construction_effort_2
+	cost = 10
+
+	available_if_capitulated = yes
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = infrastructure_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_building_construction = {
+			type = infrastructure
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = infrastructure
+			level = 1
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = infrastructure
+									size > 0
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 1
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = infrastructure
+									size > 1
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 6
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_production_effort_3
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = PRU_production_effort_2 }
+	x = 0
+	y = 1
+	relative_position_id = PRU_production_effort_2
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = production_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = arms_factory
+			level = 2
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_infrastructure_effort_2
+	icon = GFX_goal_generic_construct_infrastructure
+	prerequisite = { focus = PRU_infrastructure_effort }
+	x = 0
+	y = 1
+	relative_position_id = PRU_infrastructure_effort
+	cost = 10
+
+	available_if_capitulated = yes
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = infrastructure_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_building_construction = {
+			type = infrastructure
+			level = 4
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = infrastructure
+			level = 6
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = infrastructure
+									size > 0
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 4
+				instant_build = yes
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = infrastructure
+					size > 1
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = infrastructure
+									size > 1
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			add_building_construction = {
+				type = infrastructure
+				level = 6
+				instant_build = yes
+			}
+		}
+	}
+}
+
+focus = {
+	id = PRU_production_effort_4
+	icon = GFX_goal_generic_construct_military
+	prerequisite = { focus = PRU_production_effort_3 }
+	x = 0
+	y = 2
+	relative_position_id = PRU_production_effort_2
+	cost = 10
+
+	available_if_capitulated = yes
+
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	bypass = {
+		custom_trigger_tooltip = {
+			tooltip = production_effort_tt
+			all_owned_state = {
+				free_building_slots = {
+					building = arms_factory
+					size < 1
+					include_locked = yes
+				}
+			}
+		}
+	}
+
+	complete_tooltip = {
+		add_extra_state_shared_building_slots = 3
+		add_building_construction = {
+			type = arms_factory
+			level = 3
+			instant_build = yes
+		}
+	}
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+				OR = {
+					is_in_home_area = yes
+					NOT = {
+						owner = {
+							any_owned_state = {
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+								is_in_home_area = yes
+							}
+						}
+					}
+				}
+			}
+			303 = { add_extra_state_shared_building_slots = 3 }
+			303 = {add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}
+}
+
+focus = {
+	id = PRU_big_project
+	icon = GFX_goal_generic_secret_weapon
+	prerequisite = { focus = PRU_production_effort_4 }
+	prerequisite = { focus = PRU_infrastructure_effort_2 }
+	x = -1
+	y = 1
+	relative_position_id = PRU_production_effort_4
+	cost = 10
+
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_war_support = 0.10
+		add_political_power = 50
+		PRU = { country_event = { id = peru.10 } }
+		news_event = { id = peru.9 }
+	}
+}
+
+focus = {
+	id = PRU_completely_upgraded
+	icon = GFX_goal_generic_construct_civilian
+	prerequisite = { focus = PRU_big_project }
+	x = -1
+	y = 2
+	relative_position_id = PRU_production_effort_4
+	cost = 10
+
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_stability = 0.2
+		add_research_slot = 1
+		}
+	}
+
+
+
+
+
+focus = {
+	id = PRU_reinforce_lima
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = PRU_completely_upgraded focus = PRU_naval_effort focus = PRU_test }
+	x = 0
+	y = 2
+	relative_position_id = PRU_naval_effort
+	cost = 14.42
+
+	available_if_capitulated = no
+
+	completion_reward = {
+		303 = { add_building_construction = {
+			type = bunker
+			instant_build = yes
+			level = 10
+			province = { id = 12997 }
+			}
+		}
+	}
+}
+
+}

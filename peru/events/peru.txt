@@ -1,0 +1,323 @@
+#Ecuador Nuking
+
+news_event = {
+	id = nuke_dropped.100
+	title = nuke_dropped.100.t
+	desc = nuke_dropped.100.d
+	picture = GFX_news_event_nuke
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		FROM.FROM = { state = 12997 }
+	}
+
+	option = {
+		name = nuke_dropped.1000.a
+		trigger = {
+			NOT = { owns_state = 529 }
+		}
+	}
+
+	option = {
+		name = nuke_dropped.2.b
+		trigger = {
+			owns_state = 529
+		}
+	}
+}
+
+add_namespace = peru
+
+#USA alliance
+
+country_event = {
+	id = peru.0
+	title = peru.0.t
+	desc = peru.0.d
+	picture = GFX_news_event_yugoslav_coup
+
+	is_triggered_only = yes
+	fire_only_once = no
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.0.a
+		ai_chance = { factor = 100 }
+		create_faction = "United Forces"
+			add_to_faction = USA
+			add_to_faction = COL
+			add_to_faction = ECU
+			}
+		}
+
+#Turn to democracy
+
+country_event = {
+	id = peru.2
+	title = peru.2.t
+	desc = peru.2.d
+	picture = GFX_news_event_generic_parliament
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.2.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.1
+		add_political_power = -10
+			}
+		}
+
+#Ecuador Annexation
+
+country_event = {
+	id = peru.3
+	title = peru.3.t
+	desc = peru.3.d
+	picture = GFX_report_event_generic_peaceful_annexation
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.3a.a
+		ai_chance = { factor = 0 }
+		add_stability = -0.05
+		add_war_support = 0.05
+			}
+	option = {
+		name = peru.3b.a
+		ai_chance = { factor = 100 }
+		add_war_support = 0.05
+		add_political_power = -10
+						}
+}
+
+#Start
+
+country_event = {
+	id = peru.4
+	title = peru.4.t
+	desc = peru.4.d
+	picture = GFX_report_event_spain_civil_war_volunteers_01
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.4.a
+		ai_chance = { factor = 100 }
+		add_stability = 0.05
+		add_research_slot = 1
+			}
+}
+
+#Communist on the Rise
+
+country_event = {
+	id = peru.5
+	title = peru.5.t
+	desc = peru.5.d
+	picture = GFX_report_event_iww_demonstration
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.5.a
+		ai_chance = { factor = 50 }
+		add_stability = -0.5
+		add_political_power = -50
+		set_party_name = {
+			ideology = Communism
+			long_name =
+				PRU_the_new_peru_long
+			name = PRU_the_new_peru
+				}
+			}
+		}
+
+#American Axis
+
+country_event = {
+	id = peru.6
+	title = peru.6.t
+	desc = peru.6.d
+	picture = GFX_report_event_fascist_militia
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.0.a
+		ai_chance = { factor = 100 }
+		create_faction = "American Axis"
+			add_to_faction = VEN
+			}
+		}
+
+#Paraguay Faction
+
+country_event = {
+	id = peru.7
+	title = peru.7.t
+	desc = peru.7.d
+	picture = GFX_report_event_communist_leader
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		PRU = {}
+		}
+
+	option = {
+		name = peru.7.a
+		ai_chance = { factor = 100 }
+		create_faction = "SACF"
+			add_to_faction = PAR
+			}
+		}
+
+#Join the allies
+
+country_event = {
+	id = peru.1
+	title = peru.1.t
+	desc = peru.1.d
+	picture = GFX_news_event_yugoslav_coup
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		}
+
+	option = {
+		name = peru.1.a
+		ai_chance = { factor = 100 }
+		ENG = { add_to_faction = PRU }
+		PRU = {
+			add_ai_strategy = {
+				type = alliance
+				id = "ENG"
+				value = 200
+			}
+		}
+	}
+}
+
+#Peru-Bolivian
+
+country_event = {
+	id = peru.8
+	title = peru.8.t
+	desc = peru.8.d
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		}
+
+	option = {
+		name = peru.8.a
+		ai_chance = { factor = 100 }
+			add_war_support = 0.05
+			declare_war_on = {
+				target = BOL
+				type =
+					annex_everything
+			}
+	}
+}
+
+#Big Project
+
+country_event = {
+	id = peru.10
+	title = peru.10.t
+	desc = peru.10.d
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		}
+
+	option = {
+		name = peru.10.a
+		ai_chance = { factor = 100 }
+			declare_war_on = {
+				target = MEX
+				type =
+					annex_everything
+			}
+	}
+}
+
+news_event = {
+	id = peru.9
+	title = peru.9.t
+	desc = peru.9.d
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = PRU
+		}
+
+	option = {
+		name = peru.9a.a
+		ai_chance = { factor = 100 }
+			}
+	option = {
+		name = peru.9b.a
+		ai_chance = { factor = 100 }
+			}
+	option = {
+		name = peru.9c.a
+		ai_chance = { factor = 100 }
+			}
+}
