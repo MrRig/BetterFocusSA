@@ -1,0 +1,56 @@
+﻿l_german:
+
+peru.0.t:0 "Peru alliances in America"
+peru.0.d:0 "Peru starts an all democratic Faction to defend America the right way! Members are for example, the USA, Columbia and Ecuador!"
+peru.0.a:0 "Peru is on the top of the mountain!"
+
+peru.2.t:0 "The good Ones take over in Peru!"
+peru.2.d:0 "Democratics are now on the Top in this raising country Peru. Between dense Jungle and the highest mountains of the Andes there is finally something better than fascism! DEMOCRACY"
+peru.2.a:0 "For the people"
+
+peru.3.t:0 "Peru claims Ecuador"
+peru.3.d:0 "Peru makes claims on the otherwise so peaceful Ecuador and reduces their liberty"
+peru.3a.a:0 "I like that! Those Ecuadorians are incompetent if they're free!"
+peru.3b.a:0 "This area has to be Peruvian!"
+
+peru.4.t:0 "Peru reorganizes the government"
+peru.4.d:0 "Peru starts something big! The current leader Óscar Benavides wants his country, his Reich to be something the peoples want to talk about and will talk about for time to come!"
+peru.4.a:0 "Let's go! For Peru!"
+
+peru.5.t:0 "The Fall of the Fascists in the Empire of Peru"
+peru.5.d:0 "The extreme left party of the comunistas are taking over the government in Peru! A left Reveolution for the otherwise right ruling party. According to the latest news our leader Óscar Benavides was arrested!"
+peru.5.a:0 "What the fuck are elections for?!"
+
+peru.6.t:0 "The "American Axis""
+peru.6.d:0 "Peru's great leader Óscar Benavides anounced an alliance with venezuela today! With the example of the German Axis Benavides wants to go on and get what is his and most importantly whats Peru's!"
+peru.6.a:0 "The world power rises!"
+
+peru.7.t:0 "The SACF"
+peru.7.d:0 ""For the People of Peru" said our leader Ramón Ágreda today while anouncing the SACF, the South American Communist Federation! He said it will start as a partnership with Paraguay but will grow to it's maximum soon!"
+peru.7.a:0 "We stand together proudly"
+
+peru.1.t:0 "Peru asks to join the allies"
+peru.1.d:0 "Will the United Kingdom accept Peru's request to join the mighty allies? Every single politician in Peru hopes that it will be so!"
+peru.1.a:0 "The UK would be a strong partner!!"
+
+peru.8.t:0 "Peru declares war on Bolivia"
+peru.8.d:0 "As Óscar Benavides said this morning "I am glad to announce the plan to reform the Peru-Bolivian Empire!". According to that Peru goes to war with Bolivia!"
+peru.8.a:0 "For Peru-Bolivia"
+
+
+ecuador.0.t:0 "Galapagos fights his Liberty-War"
+ecuador.0.d:0 "Galapagos (Ecuador) declared war on Peru for their Liberty! The chances are against them, but god is with them in this harsh comming weeks. God save Ecuador!"
+ecuador.0a.a:0 "God save Ecuador!"
+ecuador.0b.a:0 "Oh, even GOD couldn't help!"
+
+
+#Event for the UK
+britain.100.t:0 "Peru wants to join the Allies"
+britain.100.d:0 "Will the United Kingdom accept Peru's request?"
+britain.100a.a:0 "Hurray, the democracy!"
+britain.100b.a:0 "Peru is not tolerated in the allies!"
+
+#Nukes
+nuke_dropped.100.t:0 "Nuke dropped in Peru!"
+nuke_dropped.100.d:0 "The peruvian capital Lima was hit by an nuclear strike! Many citizens were killed or heavily hurt. Most of the city is a ruin. If you see something like that you wonder how people could do something cruel like that but there are people to do that!"
+nuke_dropped.100.a:0 "What a massacre!"
